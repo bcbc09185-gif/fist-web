@@ -115,7 +115,7 @@ export default function AIAssistant() {
     setIsLoading(true);
 
     try {
-      const response = await fetch((import.meta.env.VITE_API_URL || '') + '/api/ai-assistant', {
+      const response = await fetch('https://websitebazer.onrender.com' + '/api/ai-assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1042,3 +1042,4 @@ export default function App() {
     </div>
   );
 }
+

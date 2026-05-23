@@ -37,8 +37,8 @@ export default function CheckoutModal({ product, userEmail, onClose, onOrderSucc
     const loadConfigs = async () => {
       try {
         const [payRes, packRes] = await Promise.all([
-          fetch((import.meta.env.VITE_API_URL || '') + '/api/configs/payments'),
-          fetch((import.meta.env.VITE_API_URL || '') + '/api/configs/guide-packs')
+          fetch('https://websitebazer.onrender.com' + '/api/configs/payments'),
+          fetch('https://websitebazer.onrender.com' + '/api/configs/guide-packs')
         ]);
         if (payRes.ok) {
           const pays = await payRes.json();
@@ -95,7 +95,7 @@ export default function CheckoutModal({ product, userEmail, onClose, onOrderSucc
         } : undefined
       };
 
-      const res = await fetch((import.meta.env.VITE_API_URL || '') + '/api/orders', {
+      const res = await fetch('https://websitebazer.onrender.com' + '/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -477,3 +477,4 @@ export default function CheckoutModal({ product, userEmail, onClose, onOrderSucc
     </div>
   );
 }
+
