@@ -1,8 +1,9 @@
+const API_BASE = "https://websitebazer.onrender.com";
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { 
   ShoppingBag, 
   User as UserIcon, 
-  Plus, 
+  Plus, f
   LogOut, 
   LayoutDashboard, 
   Search,
