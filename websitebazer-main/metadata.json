@@ -1,8 +1,0 @@
-{
-  "name": "Website Bazer",
-  "description": "A premium shop for ready-made websites, providing a marketplace for high-quality, ready-to-deploy web solutions.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
