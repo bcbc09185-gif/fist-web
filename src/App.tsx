@@ -107,7 +107,7 @@ export default function App() {
       return;
     }
     try {
-      const res = await fetch((import.meta.env.VITE_API_URL || "") + `/api/orders?email=${encodeURIComponent(currentUser.email)}`);
+      const res = await fetch(("https://websitebazer.onrender.com") + `/api/orders?email=${encodeURIComponent(currentUser.email)}`);
       if (res.ok) {
         const data = await res.json();
         setUserOrders(Array.isArray(data) ? data : []);
@@ -1518,7 +1518,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                       onClick={async () => {
                         if (window.confirm(`Delete ${p.name}?`)) {
                           try {
-                            const res = await fetch((import.meta.env.VITE_API_URL || "") + `/api/products/${p._id}`, { method: 'DELETE' });
+                            const res = await fetch(("https://websitebazer.onrender.com") + `/api/products/${p._id}`, { method: 'DELETE' });
                             if (res.ok) {
                               toast.success("Product deleted");
                               fetchData();
@@ -1661,7 +1661,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                             type="button"
                             onClick={async () => {
                               try {
-                                const r = await fetch((import.meta.env.VITE_API_URL || "") + `/api/orders/${o._id}`, {
+                                const r = await fetch(("https://websitebazer.onrender.com") + `/api/orders/${o._id}`, {
                                   method: 'PUT',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify({ status: 'confirmed' })
@@ -1686,7 +1686,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                             type="button"
                             onClick={async () => {
                               try {
-                                const r = await fetch((import.meta.env.VITE_API_URL || "") + `/api/orders/${o._id}`, {
+                                const r = await fetch(("https://websitebazer.onrender.com") + `/api/orders/${o._id}`, {
                                   method: 'PUT',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify({ status: 'rejected' })
@@ -1712,7 +1712,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                             onClick={async () => {
                               if (window.confirm("Are you sure you want to delete this order permanently? This cannot be undone.")) {
                                 try {
-                                  const r = await fetch((import.meta.env.VITE_API_URL || "") + `/api/orders/${o._id}`, {
+                                  const r = await fetch(("https://websitebazer.onrender.com") + `/api/orders/${o._id}`, {
                                     method: 'DELETE'
                                   });
                                   if (r.ok) {
@@ -1812,7 +1812,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                         onClick={async () => {
                           try {
                             const updated = !pc.isEnabled;
-                            const r = await fetch((import.meta.env.VITE_API_URL || "") + `/api/configs/payments/${pc.method}`, {
+                            const r = await fetch(("https://websitebazer.onrender.com") + `/api/configs/payments/${pc.method}`, {
                               method: 'PUT',
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({ isEnabled: updated })
@@ -1838,7 +1838,7 @@ function AdminPanel({ onProductAdded }: { onProductAdded?: () => void }) {
                         onBlur={async (e) => {
                           const val = e.target.value;
                           try {
-                            const r = await fetch((import.meta.env.VITE_API_URL || "") + `/api/configs/payments/${pc.method}`, {
+                            const r = await fetch(("https://websitebazer.onrender.com") + `/api/configs/payments/${pc.method}`, {
                               method: 'PUT',
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({ details: val })
@@ -1949,7 +1949,7 @@ function EditProductModal({ product, onClose, onUpdated }: { product: Product, o
         }
       });
 
-      const res = await fetch((import.meta.env.VITE_API_URL || "") + `/api/products/${product._id}`, { method: 'PUT', body: data });
+      const res = await fetch(("https://websitebazer.onrender.com") + `/api/products/${product._id}`, { method: 'PUT', body: data });
       let result: any = {};
       try {
         result = await res.json();
@@ -3233,4 +3233,5 @@ function ProductDetailModal({ product, onClose, onBuy, isUnlocked }: { product: 
     </motion.div>
   );
 }
+
 
