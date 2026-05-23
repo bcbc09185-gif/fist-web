@@ -24,7 +24,7 @@ export default function EditGuidePackModal({ pack, onClose, onUpdated }: EditGui
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(`/api/configs/guide-packs/${pack.key}`, {
+      const res = await fetch((import.meta.env.VITE_API_URL || "") + `/api/configs/guide-packs/${pack.key}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
